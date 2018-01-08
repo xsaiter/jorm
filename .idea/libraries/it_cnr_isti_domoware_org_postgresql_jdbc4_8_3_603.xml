@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="it.cnr.isti.domoware:org.postgresql.jdbc4:8.3-603" type="repository">
+    <properties maven-id="it.cnr.isti.domoware:org.postgresql.jdbc4:8.3-603" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/cnr/isti/domoware/org.postgresql.jdbc4/8.3-603/org.postgresql.jdbc4-8.3-603.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
