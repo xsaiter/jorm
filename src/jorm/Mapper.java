@@ -8,15 +8,15 @@ import java.util.HashMap;
 
 public abstract class Mapper<T extends Entity> {
     private final DbContext _context;
-    private HashMap<Long, Entity> _loaded = new HashMap<>();
+    private final HashMap<Long, Entity> _buffer = new HashMap<>();
 
     protected Mapper(DbContext context) {
         _context = context;
     }
 
     public T find(long id) {
-        if (_loaded.containsKey(id)) {
-            return (T) _loaded.get(id);
+        if (_buffer.containsKey(id)) {
+            return (T) _buffer.get(id);
         }
         T entity = loadById(id);
         if (entity != null) {
@@ -50,8 +50,8 @@ public abstract class Mapper<T extends Entity> {
     protected abstract T map(ResultSet rs) throws SQLException;
 
     protected void addToLoaded(Entity entity) {
-        if (!_loaded.containsKey(entity.getId())) {
-            _loaded.put(entity.getId(), entity);
+        if (!_buffer.containsKey(entity.getId())) {
+            _buffer.put(entity.getId(), entity);
         }
     }
 
