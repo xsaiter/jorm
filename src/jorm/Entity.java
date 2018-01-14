@@ -42,4 +42,11 @@ public abstract class Entity {
 
         return _id == other._id;
     }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31*result + (int) (_id ^ (_id >>> 32));
+        return result;
+    }
 }
